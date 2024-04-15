@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+        http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+        
+        <bean id="hello" class="com.HelloWorld" scope="prototype"/>
+        
+        <bean id="dept" class="com.Department" autowire="byName">
+        	<property name="deptId" value="123"/>
+        	<property name="deptName" value="HR"/>
+        </bean>
+        
+        <bean id="emp" class="com.Employee">
+        	<property name="empid" value="1001"/>
+        	<property name="name" value="Rahul"/>
+        	<property name="email" value="rahul@gmail.com"/>
+        </bean>
+        
+        <bean id="employee" class="com.Employee">
+        	<property name="empid" value="1002"/>
+        	<property name="name" value="Saurabh"/>
+        	<property name="email" value="saurabh@gmail.com"/>
+        </bean>
+</beans>
