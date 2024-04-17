@@ -28,4 +28,13 @@ public class EmployeeService {
 		else
 			return null;
 	}
+	public Employee createEmployee(Employee emp) {
+		return eRepo.saveAndFlush(emp);
+	}
+	public Employee updateEmployee(Employee emp) {
+		if(getEmployee(emp.getEmpid())!=null)
+			return eRepo.saveAndFlush(emp);
+		else
+			return null;
+	}
 }
