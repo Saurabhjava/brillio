@@ -1,0 +1,1 @@
+create table currency_exchange (id integer not null, exchange_value float(53) not null, currency_from varchar(255), currency_to varchar(255), primary key (id))
