@@ -7,10 +7,16 @@ export class Counter extends Component {
       count: 0,
     };
   }
+  callbackMethod(value) {
+    alert(`State changed with ${value}`);
+  }
   increment() {
-    this.setState((preState) => ({
-      count: preState.count + 1,
-    }));
+    this.setState(
+      (preState) => ({
+        count: preState.count + 1,
+      }),
+      this.callbackMethod(this.state.count)
+    );
     console.log(this.state.count);
   }
   incrementByFive() {

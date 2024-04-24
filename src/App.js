@@ -4,11 +4,15 @@ import Product from "./Product";
 import { ProductClass } from "./ProductClass";
 import { ClickEvent } from "./ClickEvent";
 import { Counter } from "./Counter";
+import FunctionalState from "./FunctionalState";
+import { ParentComponent } from "./ParentComponent";
 
 function App() {
   return (
     <div className="App, container">
-      <Counter />
+      <ParentComponent />
+      {/* <FunctionalState /> */}
+      {/* <Counter /> */}
       {/* <ClickEvent /> */}
       {/* <Product name="Ract Book" price="550" quantity="5">
         This book is good for novice.
