@@ -2,7 +2,6 @@ function EmployeeList(props) {
   console.log(props.employees);
   return (
     <div>
-      <h1>Employee Data</h1>
       <table className="table table-bordered">
         <tbody>
           <tr>
@@ -18,7 +17,12 @@ function EmployeeList(props) {
               <td>{employee.email}</td>
               <td>{employee.dob}</td>
               <td>
-                <button className="btn btn-danger">delete</button>
+                <button
+                  className="btn btn-danger"
+                  onClick={() => props.delEmployee(employee.empid)}
+                >
+                  delete
+                </button>
               </td>
             </tr>
           ))}

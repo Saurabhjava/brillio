@@ -27,6 +27,7 @@ function CreateEmployee() {
   const changeHandler = (event) => {
     setEmployee({ ...employee, [event.target.name]: event.target.value });
   };
+
   const submitHandler = (e) => {
     e.preventDefault();
     console.log(employee);
@@ -34,6 +35,25 @@ function CreateEmployee() {
       .post("http://localhost:8080/employees", employee)
       .then((response) => {
         setEmpList([...empList, response.data]);
+      })
+      .catch((error) => {
+        setMsg(error);
+      });
+  };
+
+  const deleteEmployee = async (eid) => {
+    let empData = [];
+    empList.map((e) => empData.push(e));
+    axios
+      .delete(`http://localhost:8080/employees/${eid}`)
+      .then((response) => {
+        for (let i = 0; i < empData.length; i++) {
+          if (empData[i].empid === response.data.empid) {
+            empData.splice(i, 1);
+            setEmpList(empData);
+            break;
+          }
+        }
       })
       .catch((error) => {
         setMsg(error);
@@ -76,7 +96,7 @@ function CreateEmployee() {
           Submit
         </button>
       </form>
-      <EmployeeList employees={empList} />
+      <EmployeeList employees={empList} delEmployee={deleteEmployee} />
       <p>{msg}</p>
     </div>
   );
