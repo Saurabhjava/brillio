@@ -1,0 +1,25 @@
+import { MyContext, UserContext } from "../App";
+
+function ComponentZ() {
+  return (
+    <div>
+      ComponentZ is Rendered!
+      <UserContext.Consumer>
+        {(n) => {
+          return (
+            <MyContext.Consumer>
+              {(n1) => {
+                return (
+                  <h5>
+                    Hello {n} You are {n1}
+                  </h5>
+                );
+              }}
+            </MyContext.Consumer>
+          );
+        }}
+      </UserContext.Consumer>
+    </div>
+  );
+}
+export default ComponentZ;
