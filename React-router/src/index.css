@@ -11,10 +11,10 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
-nav {
+/* nav {
   background-color: cyan;
   padding: 15px 30px;
-}
+}*/
 nav a{
   margin-right: 18px;
 }
