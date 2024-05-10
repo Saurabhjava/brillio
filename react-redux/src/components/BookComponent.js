@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { buy_book } from "../reduxContainer/BookAction";
 
 function BookComponent() {
-  const noOfBooks = useSelector((state) => state.noOfBooks);
+  const noOfBooks = useSelector((state) => state.BookReducer.noOfBooks);
   const dis = useDispatch();
   return (
     <>
