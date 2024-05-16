@@ -1,13 +1,15 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Home from "./Home";
+import Counter from "./Counter";
+import UserList from "./UserList";
+import About from "./About";
 
 function App() {
   return (
-    <div className="App">
-      <p>Hello Saurabh Kumar Sharma. We are learning react </p>
-      <h1>React Training</h1>
-      <Home />
+    <div>
+      {/* <UserList /> */}
+      <About />
     </div>
   );
 }

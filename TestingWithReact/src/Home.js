@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
 
-function Home() {
+function Home(props) {
+  const [data, setData] = useState("MyText");
   return (
     <div>
-      <h3>Home Component</h3>
+      <div>Home Component</div>
+      <h3>Your Name: {props.name}</h3>
       <input
         type="text"
         placeholder="Enter UserName"
@@ -18,6 +20,11 @@ function Home() {
         name="password"
       />
       <br />
+      <button onClick={() => setData("Text changed on Button Click")}>
+        ClickMe
+      </button>
+      <br />
+      <h3>{data}</h3>
       <br />
       <img
         title="AI Image"

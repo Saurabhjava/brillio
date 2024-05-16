@@ -1,5 +1,6 @@
-import { render, screen } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import Home from "../Home";
+import UserList from "../UserList";
 
 test("renders text on Home Component", () => {
   render(<Home />);
@@ -21,4 +22,24 @@ test("Testing Input field", () => {
   //expect(inputBox).toHaveAttribute("id", "t1");
   expect(inputBox).toBeInTheDocument();
   expect(inputBox).toHaveAttribute("name", "password");
+});
+
+test("Testing Home component for div text", () => {
+  render(<Home />);
+  const div = screen.getByText("Home Component", { exact: true });
+  expect(div).toBeInTheDocument();
+});
+
+test("Click Event test case", () => {
+  render(<Home />);
+  const btn = screen.getByRole("button");
+  fireEvent.click(btn);
+  expect(screen.getByText("Text changed on Button Click")).toBeInTheDocument();
+});
+
+test("Props test case", () => {
+  const myName = "Rajesh";
+  render(<Home name={myName} />);
+  const user = screen.getByText(`Your Name: ${myName}`);
+  expect(user).toBeInTheDocument();
 });
